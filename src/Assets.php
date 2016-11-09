@@ -34,6 +34,11 @@ class Assets
             : $url->setQueryParameter('v', $this->version);
         $result = (string) $url;
 
-        return $url->getHost() ? $result : substr($result, 2);
+        if ($url->getHost()) {
+            return $result;
+        }
+
+        // Nette/Http v2.4.0 and older return url prefixed with "//" if no host given
+        return substr($result, 0, 2) === '//' ? substr($result, 2) : $result;
     }
 }
