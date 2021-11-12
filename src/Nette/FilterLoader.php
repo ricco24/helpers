@@ -2,21 +2,6 @@
 
 namespace Kelemen\Helper\Nette;
 
-/**
- * Register in neon file
- *
- * <code>
- * filterLoader:
- *      class: App\Core\Helper\FilterLoader
- *      setup:
- *          - register('helper', 'callback')
- *          - register('helper2', ['Class', 'method'])
- *
- * nette.latteFactory:
- *      setup:
- *          - addFilter(null, [@filterLoader, 'load'])
- * </code>
- */
 class FilterLoader
 {
     /**
@@ -47,5 +32,13 @@ class FilterLoader
     public function register($name, $callback)
     {
         $this->filters[strtolower($name)] = $callback;
+    }
+
+    /**
+     * @return array
+     */
+    public function getFilters()
+    {
+        return $this->filters;
     }
 }
