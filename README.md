@@ -17,5 +17,5 @@ services:
     
     nette.latteFactory:
         setup:
-            - addFilter(null, [@filterLoader, 'load'])
+            - addFilterLoader([@filterLoader, 'load'])
 ```

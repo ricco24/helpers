@@ -12,7 +12,7 @@ class Strings
      * @param bool $withCount   return form prefixed with given count?
      * @return string
      */
-    public static function nForm($count, $form1, $form2, $form3, $withCount = false)
+    public static function nForm(int $count, string $form1, string $form2, string $form3, bool $withCount = false)
     {
         if ($count == 1) {
             return $withCount ? $count . ' ' . $form1 : $form1;

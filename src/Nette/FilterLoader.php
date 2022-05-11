@@ -5,39 +5,31 @@ namespace Kelemen\Helper\Nette;
 class FilterLoader
 {
     /**
-     * @var array All registered filters
+     * @var array<string, callable> All registered filters
      */
-    private $filters = array();
+    private $filters = [];
 
     /**
-     * Check if filter is registered, call filter if is registered
-     *
-     * @param string $helper
-     * @return mixed
+     * Check if filter is registered and return it
      */
-    public function load($helper)
+    public function load(string $helper): ?callable
     {
         $helper = strtolower($helper);
-        if (isset($this->filters[$helper])) {
-            return call_user_func_array($this->filters[$helper], array_slice(func_get_args(), 1));
-        }
+        return $this->filters[$helper] ?? null;
     }
 
     /**
      * Registers new filter
-     *
-     * @param string $name
-     * @param callable $callback
      */
-    public function register($name, $callback)
+    public function register(string $name, callable $callback)
     {
         $this->filters[strtolower($name)] = $callback;
     }
 
     /**
-     * @return array
+     * @return array<string, callable>
      */
-    public function getFilters()
+    public function getFilters(): array
     {
         return $this->filters;
     }

@@ -10,7 +10,7 @@ class Arr
      * @param string $sep
      * @return array
      */
-    public static function explode($string, $sep = ',')
+    public static function explode(string $string, string $sep = ','): array
     {
         if (empty($string)) {
             return [];
