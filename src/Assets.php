@@ -19,10 +19,10 @@ class Assets
 
     /**
      * @param string $path          Path/url to process
-     * @param bool|true $prepend    If prepend is set add version to path, otherwise append version as v=? to query parameters
+     * @param bool $prepend    If prepend is set add version to path, otherwise append version as v=? to query parameters
      * @return string
      */
-    public function generateVersionPath($path, $prepend = true)
+    public function generateVersionPath(string $path, bool $prepend = true): string
     {
         if (!$this->version) {
             return $path;
