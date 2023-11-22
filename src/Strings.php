@@ -2,6 +2,8 @@
 
 namespace Kelemen\Helper;
 
+use Nette\Utils\Strings as NetteStrings;
+
 class Strings
 {
     /**
@@ -22,5 +24,10 @@ class Strings
             return $withCount ? $count . ' ' . $form2 : $form2;
         }
         return $withCount ? $count . ' ' . $form3 : $form3;
+    }
+
+    public static function slug(string $s, string $delimiter = '_', ?string $charlist = null, bool $lower = true): string
+    {
+        return str_replace('-', $delimiter, NetteStrings::webalize($s, $charlist, $lower));
     }
 }
