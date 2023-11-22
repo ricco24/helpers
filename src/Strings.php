@@ -26,8 +26,8 @@ class Strings
         return $withCount ? $count . ' ' . $form3 : $form3;
     }
 
-    public static function slug(string $s, string $delimiter = '_', ?string $charlist = null, bool $lower = true): string
+    public static function slug(string $s, string $sep = '_', ?string $charlist = null, bool $lower = true): string
     {
-        return str_replace('-', $delimiter, NetteStrings::webalize($s, $charlist, $lower));
+        return str_replace('-', $sep, NetteStrings::webalize($s, $charlist, $lower));
     }
 }
