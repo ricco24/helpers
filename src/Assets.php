@@ -41,4 +41,9 @@ class Assets
         // Nette/Http v2.4.0 and older return url prefixed with "//" if no host given
         return substr($result, 0, 2) === '//' ? substr($result, 2) : $result;
     }
+
+    public function getVersion(): ?string
+    {
+        return $this->version;
+    }
 }
