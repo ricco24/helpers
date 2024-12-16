@@ -21,7 +21,7 @@ class FilterLoader
     /**
      * Registers new filter
      */
-    public function register(string $name, callable $callback)
+    public function register(string $name, callable $callback): void
     {
         $this->filters[strtolower($name)] = $callback;
     }

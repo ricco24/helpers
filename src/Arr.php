@@ -2,6 +2,8 @@
 
 namespace Kelemen\Helper;
 
+use InvalidArgumentException;
+
 class Arr
 {
     /**
@@ -12,6 +14,10 @@ class Arr
      */
     public static function explode(string $string, string $sep = ','): array
     {
+        if ($sep === '') {
+            throw new InvalidArgumentException('Separator cannot be an empty string.');
+        }
+
         if (empty($string)) {
             return [];
         }
