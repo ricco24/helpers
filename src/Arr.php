@@ -14,11 +14,7 @@ class Arr
      */
     public static function explode(string $string, string $sep = ','): array
     {
-        if ($sep === '') {
-            throw new InvalidArgumentException('Separator cannot be an empty string.');
-        }
-
-        if (empty($string)) {
+        if (empty($string) || empty($sep)) {
             return [];
         }
         return array_map('trim', explode($sep, $string));
