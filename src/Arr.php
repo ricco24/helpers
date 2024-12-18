@@ -2,6 +2,8 @@
 
 namespace Kelemen\Helper;
 
+use InvalidArgumentException;
+
 class Arr
 {
     /**
@@ -12,7 +14,7 @@ class Arr
      */
     public static function explode(string $string, string $sep = ','): array
     {
-        if (empty($string)) {
+        if (empty($string) || empty($sep)) {
             return [];
         }
         return array_map('trim', explode($sep, $string));
